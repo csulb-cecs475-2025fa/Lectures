@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.TypeDemo", "src\Cecs475.TypeDemo\Cecs475.TypeDemo.csproj", "{C0038307-BE27-4BD9-A427-33ED5C965640}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.BoardGames.Model", "src\Cecs475.BoardGames.Model\Cecs475.BoardGames.Model.csproj", "{699077B1-698D-1769-1EB3-F477502474BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.BoardGames.Othello.ConsoleView", "src\Cecs475.BoardGames.Othello.ConsoleView\Cecs475.BoardGames.Othello.ConsoleView.csproj", "{6363A374-A56F-34CB-E3E6-5E05BBA23B4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.BoardGames.Othello.Model", "src\Cecs475.BoardGames.Othello.Model\Cecs475.BoardGames.Othello.Model.csproj", "{5222F63F-8206-AE56-D95D-C0585B5778F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.BoardGames.ConsoleView", "src\Cecs475.BoardGames.ConsoleView\Cecs475.BoardGames.ConsoleView.csproj", "{2C73E2E4-5376-5609-B817-B284E682709A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionDemo", "src\ReflectionDemo\ReflectionDemo.csproj", "{D1B3051A-370B-9AB5-914D-195A1BBE10D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,15 +21,34 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C0038307-BE27-4BD9-A427-33ED5C965640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0038307-BE27-4BD9-A427-33ED5C965640}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0038307-BE27-4BD9-A427-33ED5C965640}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0038307-BE27-4BD9-A427-33ED5C965640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699077B1-698D-1769-1EB3-F477502474BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699077B1-698D-1769-1EB3-F477502474BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699077B1-698D-1769-1EB3-F477502474BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699077B1-698D-1769-1EB3-F477502474BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6363A374-A56F-34CB-E3E6-5E05BBA23B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6363A374-A56F-34CB-E3E6-5E05BBA23B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6363A374-A56F-34CB-E3E6-5E05BBA23B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6363A374-A56F-34CB-E3E6-5E05BBA23B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5222F63F-8206-AE56-D95D-C0585B5778F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5222F63F-8206-AE56-D95D-C0585B5778F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5222F63F-8206-AE56-D95D-C0585B5778F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5222F63F-8206-AE56-D95D-C0585B5778F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C73E2E4-5376-5609-B817-B284E682709A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C73E2E4-5376-5609-B817-B284E682709A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C73E2E4-5376-5609-B817-B284E682709A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C73E2E4-5376-5609-B817-B284E682709A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B3051A-370B-9AB5-914D-195A1BBE10D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B3051A-370B-9AB5-914D-195A1BBE10D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B3051A-370B-9AB5-914D-195A1BBE10D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B3051A-370B-9AB5-914D-195A1BBE10D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C0038307-BE27-4BD9-A427-33ED5C965640} = {C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}
+		{699077B1-698D-1769-1EB3-F477502474BD} = {C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}
+		{6363A374-A56F-34CB-E3E6-5E05BBA23B4A} = {C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}
+		{5222F63F-8206-AE56-D95D-C0585B5778F5} = {C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}
+		{2C73E2E4-5376-5609-B817-B284E682709A} = {C25C3F15-CA79-4DB1-9CA5-A7835002D5EA}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="othello.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="othello.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Cecs475.BoardGames.ConsoleView\Cecs475.BoardGames.ConsoleView.csproj" />
+		<ProjectReference Include="..\Cecs475.BoardGames.Model\Cecs475.BoardGames.Model.csproj" />
+		<ProjectReference Include="..\Cecs475.BoardGames.Othello.Model\Cecs475.BoardGames.Othello.Model.csproj" />
+	</ItemGroup>
+
+
+</Project>
