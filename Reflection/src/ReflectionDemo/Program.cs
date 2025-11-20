@@ -103,9 +103,9 @@ namespace Cecs475.TypeDemo {
 
 
 
-			// NEW PROBLEM: this output is ugly, because TicTacToeMove objects (from the Model) don't know 
+			// NEW PROBLEM: this output is ugly, because OthelloMoves objects (from the Model) don't know 
 			// how to display themselves on a console (a View problem). 
-			// How do we define a dependency between TicTacToeBoard and TicTacToeConsoleView, without breaking
+			// How do we define a dependency between OthelloMove and OthelloConsoleView, without breaking
 			// the MVC pattern?
 
 			// The "othello.json" file describes the libraries that are needed to play a game of othello.
