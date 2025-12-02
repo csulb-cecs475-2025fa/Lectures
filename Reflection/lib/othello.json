@@ -1,0 +1,10 @@
+{
+    "version": "1.0",
+    "gameName": "Othello",
+    "libraries": [
+        "Cecs475.BoardGames.Othello.Model.dll",
+        "Cecs475.BoardGames.Othello.ConsoleView.dll"
+    ],
+    "boardType": "Cecs475.BoardGames.Othello.Model.OthelloBoard",
+    "consoleViewType" : "Cecs475.BoardGames.Othello.ConsoleView.OthelloConsoleView"
+}

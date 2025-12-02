@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "name": "Othello",
+  "libraries": [
+    {
+      "name": "Cecs475.BoardGames.Othello.Model",
+      "version": "1.0.0",
+      "publicKeyToken": "68e71c13048d452a"
+    },
+    {
+      "name": "Cecs475.BoardGames.Othello.ConsoleView",
+      "version": "1.0.0",
+      "publicKeyToken": "68e71c13048d452a"
+    }
+  ],
+  "factoryClass": "Cecs475.BoardGames.Othello.ConsoleView.OthelloConsoleFactory"
+}
