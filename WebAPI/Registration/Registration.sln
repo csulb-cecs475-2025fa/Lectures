@@ -5,13 +5,13 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{009069B3-4045-4DD2-9766-8B2CAF06850B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.Scheduling.RegistrationApp", "src\Cecs475.Scheduling.RegistrationApp\Cecs475.Scheduling.RegistrationApp.csproj", "{CECF2324-59F7-4E05-94A5-BA3BC42AB360}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.Web8.Scheduling", "src\Cecs475.Web8.Scheduling\Cecs475.Web8.Scheduling.csproj", "{1362A85F-460D-4EA7-8BC3-487CDCC13ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cecs475.Web8.Scheduling", "src\Cecs475.Web8.Scheduling\Cecs475.Web8.Scheduling.csproj", "{1362A85F-460D-4EA7-8BC3-487CDCC13ADE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cecs475.Scheduling.Data", "src\Cecs475.Scheduling.Data\Cecs475.Scheduling.Data.csproj", "{3D069157-D9DF-4A75-9B00-79B132B5DCAE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cecs475.Scheduling.Business", "src\Cecs475.Scheduling.Business\Cecs475.Scheduling.Business.csproj", "{ADC54E2B-171E-4D29-A3CD-1B1186FA8F7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cecs475.Scheduling.RegistrationApp", "src\Cecs475.Scheduling.RegistrationApp\Cecs475.Scheduling.RegistrationApp.csproj", "{981D8A62-F9F9-4D27-8E17-75956FBD79F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CECF2324-59F7-4E05-94A5-BA3BC42AB360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CECF2324-59F7-4E05-94A5-BA3BC42AB360}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CECF2324-59F7-4E05-94A5-BA3BC42AB360}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CECF2324-59F7-4E05-94A5-BA3BC42AB360}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1362A85F-460D-4EA7-8BC3-487CDCC13ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1362A85F-460D-4EA7-8BC3-487CDCC13ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1362A85F-460D-4EA7-8BC3-487CDCC13ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,15 +31,19 @@ Global
 		{ADC54E2B-171E-4D29-A3CD-1B1186FA8F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC54E2B-171E-4D29-A3CD-1B1186FA8F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADC54E2B-171E-4D29-A3CD-1B1186FA8F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981D8A62-F9F9-4D27-8E17-75956FBD79F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981D8A62-F9F9-4D27-8E17-75956FBD79F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981D8A62-F9F9-4D27-8E17-75956FBD79F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981D8A62-F9F9-4D27-8E17-75956FBD79F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CECF2324-59F7-4E05-94A5-BA3BC42AB360} = {009069B3-4045-4DD2-9766-8B2CAF06850B}
 		{1362A85F-460D-4EA7-8BC3-487CDCC13ADE} = {009069B3-4045-4DD2-9766-8B2CAF06850B}
 		{3D069157-D9DF-4A75-9B00-79B132B5DCAE} = {009069B3-4045-4DD2-9766-8B2CAF06850B}
 		{ADC54E2B-171E-4D29-A3CD-1B1186FA8F7F} = {009069B3-4045-4DD2-9766-8B2CAF06850B}
+		{981D8A62-F9F9-4D27-8E17-75956FBD79F9} = {009069B3-4045-4DD2-9766-8B2CAF06850B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DB4D14D-FF85-4872-9ED1-7DC36F23CB16}

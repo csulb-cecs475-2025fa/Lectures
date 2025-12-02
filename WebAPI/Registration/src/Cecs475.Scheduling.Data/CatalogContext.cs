@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cecs475.Scheduling.Model {
+using Cecs475.Scheduling.Model;
+namespace Cecs475.Scheduling.Data {
 	public class CatalogContext : DbContext {
 		public DbSet<SemesterTerm> SemesterTerms { get; set; }
 		public DbSet<Instructor> Instructors { get; set; }

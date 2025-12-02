@@ -9,7 +9,10 @@ using System.Net.Http;
 
 namespace Cecs475.Scheduling.Web.Controllers {
 	// PROBLEM: EntityFramework objects cannot be serialized into Json. Their object relations don't 
-	// play nice with a serializer. So instead we create a Data Transfer Object class, and manually (ugh)
+	// play nice with a serializer. For example, a Student object has a list of references to ClassSections, each
+	// of which have a list of references to Students in that section... a circular reference. How would we turn 
+	// that into JSON?
+	// So instead we create a Data Transfer Object class, and manually (ugh)
 	// map entities to DTO instances.
 	public class StudentDto {
 		public int Id { get; set; }
@@ -32,43 +35,56 @@ namespace Cecs475.Scheduling.Web.Controllers {
 	/// A controller for Student objects from the Entity Framework context.
 	/// </summary>
 	[ApiController]
+	// The Route() attribute defines the URL path to access methods in this controller.
 	[Route("api/students")]
 	public class StudentsController : ControllerBase {
-		// One Context per controller is fine -- they share the same database connection.
-		private Model.CatalogContext mContext = new Model.CatalogContext(ApplicationSettings.ConnectionString);
+		// All our data comes from a database, which we will access with EntityFramework.
+		private Data.CatalogContext mContext = new Data.CatalogContext(ApplicationSettings.ConnectionString);
 
+		// This controller uses SYNCHRONOUS methods that BLOCK the controller while they execute, limiting
+		// this controller's ability to handle more than one request "at a time". This is not the BEST way to do
+		// things.
+
+
+		// This method uses the GET verb on the controller's route, e.g., GET api/students
 		[HttpGet]
-		public async Task<IActionResult> GetStudents() {
-			var students = await mContext.Students.ToListAsync();
-			return Ok(students.Select(StudentDto.From));
+		// IActionResult packages an HTTP response code with a response body. Our controller method
+		// could return OK, or NotFound, or various other HTTP responses.
+
+		// This method has no parameters. Combined with the GET verb, the implication is to return all
+		// Student objects.
+		public IActionResult GetStudents() {
+			var allStudents = mContext.Students.Select(StudentDto.From); // map from Student to StudentDto.
+			return Ok(allStudents);
 		}
 
-		[HttpGet]
-		[Route("{id:int}")]
-		public async Task<IActionResult> GetStudent(int id) {
-			var student = await mContext.Students.SingleOrDefaultAsync(s => s.Id == id);
-			
-			if (student is null) {
+		// This method's route is api/students/<int id>
+		[HttpGet("{id:int}")]
+		public IActionResult GetStudent(int id) {
+			var result = mContext.Students.Where(s => s.Id == id).Select(StudentDto.From)
+				.SingleOrDefault();
+
+			if (result is null) {
 				return NotFound();
 			}
-			return Ok(StudentDto.From(student));
+			return Ok(result);
 		}
 
-		[HttpGet]
-		[Route("{name:alpha}")]
-		public async Task<IActionResult> GetStudent(string name) {
-			var student = await mContext.Students.FirstOrDefaultAsync(s => s.FirstName + " " + s.LastName == name);
-			if (student is null) {
+		// Route: api/students/<string name>
+		[HttpGet("{name:alpha}")]
+		public IActionResult GetStudent(string name) {
+			var result = mContext.Students.Where(s => s.FirstName + " " + s.LastName == name).Select(StudentDto.From)
+				.FirstOrDefault();
+			if (result is null) {
 				return NotFound();
 			}
-			return Ok(StudentDto.From(student));
+			return Ok(result);
 		}
 
-		[HttpGet]
-		[Route("{id}/transcript")]
-		public async Task<IActionResult> GetTranscript(int id) {
-			var student = await mContext.Students.Include(s => s.Transcript)
-				.FirstOrDefaultAsync(s => s.Id == id);
+		[HttpGet("{id:int}/transcript")]
+		public IActionResult GetTranscript(int id) {
+			var student = mContext.Students.Include(s => s.Transcript)
+				.Where(s => s.Id == id).FirstOrDefault();
 			if (student is null) {
 				return NotFound();
 			}
@@ -76,37 +92,51 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		}
 
 		[HttpPost]
-		public async void Post([FromBody] StudentDto value) {
-			mContext.Students.Add(new Model.Student() {
+		public IActionResult Post([FromBody] StudentDto value) {
+			Model.Student newStudent = new Model.Student() {
 				FirstName = value.FirstName,
 				LastName = value.LastName
-			});
-			await mContext.SaveChangesAsync();
+			};
+			mContext.Students.Add(newStudent);
+			if (mContext.SaveChanges() > 0) {
+				// Saving the changes assigns an ID to the object, so we can now retrieve
+				// that object using our existing route.
+				return GetStudent(newStudent.Id);
+			}
+			return NotFound();
 		}
 
-		[HttpPut]
-		[Route("{id}")]
-		public async Task<IActionResult> Put(int id, [FromBody] StudentDto value) {
-			var student = await mContext.Students.SingleOrDefaultAsync(s => s.Id == id);
+		[HttpPut("{id}")]
+		public IActionResult Put(int id, [FromBody] StudentDto value) {
+			var student = mContext.Students.Where(s => s.Id == id).SingleOrDefault();
 			if (student is null) {
 				return NotFound();
 			}
 			student.FirstName = value.FirstName;
 			student.LastName = value.LastName;
-			await mContext.SaveChangesAsync();
-			return Ok();
+			int results = mContext.SaveChanges();
+			if (results > 0) {
+				return Ok();
+			}
+			else {
+				return NoContent();
+			}
 		}
 
-		[HttpDelete]
-		[Route("{id}")]
-		public async Task<IActionResult> Delete(int id) {
-			var student = await mContext.Students.SingleOrDefaultAsync(s => s.Id == id);
+		[HttpDelete("{id}")]
+		public IActionResult Delete(int id) {
+			var student = mContext.Students.Where(s => s.Id == id).SingleOrDefault();
 			if (student is null) {
 				return NotFound();
 			}
 			mContext.Students.Remove(student);
-			await mContext.SaveChangesAsync();
-			return Ok();
+			int results = mContext.SaveChanges();
+			if (results > 0) {
+				return Ok();
+			}
+			else {
+				return NoContent();
+			}
 		}
 	}
 }
