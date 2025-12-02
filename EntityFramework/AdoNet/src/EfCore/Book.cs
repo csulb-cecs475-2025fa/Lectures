@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EfCore {
 	public class Book {
-		public int Id { get; set; }
-		public string Title { get; set; }
-		public string Publisher { get; set; }
-		public int AuthorId { get; set; }
-		public Author Author { get; set; }
+		public required int Id { get; init; }
+		public required string Title { get; init; }
+		public required string Publisher { get; init; }
+		public required int AuthorId { get; init; }
+		public required Author Author { get; init; }
 	}
 }

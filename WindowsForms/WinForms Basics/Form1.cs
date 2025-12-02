@@ -60,7 +60,7 @@ namespace WinForms_Basics {
 		}
 
 		private void mAttackText1_TextChanged(object sender, EventArgs e) {
-			mTogekiss.Attack = Convert.ToInt32(mAttackText1.Text);
+			//mTogekiss.Attack = Convert.ToInt32(mAttackText1.Text);
 		}
 
 		private void mDefenseText1_TextChanged(object sender, EventArgs e) {
@@ -98,6 +98,7 @@ namespace WinForms_Basics {
 			mTogekiss.AttackTarget(mCharmander, Convert.ToInt32(mPowerText1.Text));
 			mCharmander.AttackTarget(mTogekiss, Convert.ToInt32(mPowerText2.Text));
 
+			// Setting the .Text field triggers mHPText2_TextChanged.
 			mHPText1.Text = mTogekiss.HP.ToString();
 			mHPText2.Text = mCharmander.HP.ToString();
 		}
@@ -109,9 +110,12 @@ namespace WinForms_Basics {
 					.GetManifestResourceStream("Basics.Resources.charizard.png");
 				mPicture2.Image = Image.FromStream(file);
 
-				// Setting the .Text field triggers mHPText2_TextChanged.
 				mCharmander.HP = 100;
 				mCharmander.Attack = 600;
+				mCharmander.Defense = 100;
+				mHPText2.Text = mCharmander.HP.ToString();
+				mAttackText2.Text = mCharmander.Attack.ToString();
+				mDefenseText2.Text = mCharmander.Defense.ToString();
 			}
 		}
 

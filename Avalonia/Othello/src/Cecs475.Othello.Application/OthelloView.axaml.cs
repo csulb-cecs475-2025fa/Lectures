@@ -42,6 +42,7 @@ public partial class OthelloView : UserControl
 		if (sender is not Control b) {
 			throw new ArgumentException(nameof(sender));
 		}
+
 		var square = (OthelloSquare)b.DataContext!;
 		var vm = (OthelloViewModel)Resources["vm"]!;
 		if (vm.PossibleMoves.Contains(square.Position)) {

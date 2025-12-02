@@ -9,7 +9,7 @@ namespace Binding {
 		public MainWindow() {
 			InitializeComponent();
 			Employee e = new Employee() {
-				Age = 50
+				Age = 40
 			};
 			mSalaryLabel.DataContext = e;
 			mAgeText.DataContext = e;

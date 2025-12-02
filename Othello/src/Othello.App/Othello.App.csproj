@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<AssemblyName>Othello.App</AssemblyName>
 		<OutputType>Exe</OutputType>
-		<PackageId>Othello.App</PackageId>
+		<TargetFramework>net8.0</TargetFramework>
 		<StartupObject>Othello.App.Game</StartupObject>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>

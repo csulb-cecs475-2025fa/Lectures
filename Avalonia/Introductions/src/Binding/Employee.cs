@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Cecs475.Avalonia.Binding {
 	class Employee {
-		public int Age { get; set; }
+		public int Age { 
+			get; 
+			set; 
+		}
 		public int Salary { get { return Age * 50; } }
 	}
 

@@ -5,16 +5,16 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Layouts.WrapLayout"
         Title="WrapLayout">
-	<WrapPanel Orientation="Horizontal">
+	<WrapPanel Orientation="Vertical">
 		<Label Background="Gray">This label auto-sizes itself.</Label>
 		<Label Background="White">This label will start next to the other label, if it fits.</Label>
 		<Label Background="Coral">If it doesn't fit, it wraps to the next line.</Label>
-		<Label Background="Coral">Example.</Label>
-		<Label Background="Coral">Example.</Label>
-		<Label Background="Coral">Example.</Label>
-		<Label Background="Coral">Example.</Label>
-		<Label Background="Coral">Example.</Label>
-		<Label Background="Coral">Example.</Label>
+		<Label >Example.</Label>
+		<Label >Example.</Label>
+		<Label >Example.</Label>
+		<Label >Example.</Label>
+		<Label >Example.</Label>
+		<Label >Example.</Label>
 		<Label Background="Red">Example.</Label>
 	</WrapPanel>
 </Window>

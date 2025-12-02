@@ -8,7 +8,7 @@
         x:Class="Pokemon.MainWindow"
         Title="Pokemon">
 	<Window.Resources>
-		<local:Pokemon x:Key="Togekiss" HP="85" Level="100" Attack="120" Defense="115" Power="75"/>
+		<local:Pokemon x:Key="Togekiss" HP="50" Level="100" Attack="120" Defense="115" Power="75"/>
 		<local:Pokemon x:Key="Charmander" HP="39" Level="100" Attack="60" Defense="50" Power="100"/>
 	</Window.Resources>
 	<Grid>

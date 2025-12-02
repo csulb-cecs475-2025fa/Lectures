@@ -9,10 +9,10 @@
 				var author = book.GetAuthor();
 				Console.WriteLine($"{book.Title} by {author.FirstName} {author.LastName}");
 
-				//Console.WriteLine($"\tAll books by {author.FirstName} {author.LastName}");
-				//foreach (var b2 in author.Books) {
-				//	Console.WriteLine($"\t{b2.Title}");
-				//}
+				Console.WriteLine($"\tAll books by {author.FirstName} {author.LastName}");
+				foreach (var b2 in author.Books) {
+					Console.WriteLine($"\t{b2.Title}");
+				}
 			}
 		}
 	}

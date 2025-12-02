@@ -30,8 +30,8 @@ namespace Othello.Tests {
 		}
 
 		[Fact]
-		public void NewValue() {
-			// New board Value is 0.
+		public void NewAdvantage() {
+			// New board CurrentAdvantage is 0.
 			OthelloBoard board = new OthelloBoard();
 			board.CurrentAdvantage.Advantage.Should().Be(0, "New board advantage is 0");
 		}

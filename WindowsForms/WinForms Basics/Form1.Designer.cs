@@ -60,7 +60,7 @@
 			// 
 			this.mPicture2.Image = ((System.Drawing.Image)(resources.GetObject("mPicture2.Image")));
 			this.mPicture2.Location = new System.Drawing.Point(429, 15);
-			this.mPicture2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mPicture2.Margin = new System.Windows.Forms.Padding(4);
 			this.mPicture2.Name = "mPicture2";
 			this.mPicture2.Size = new System.Drawing.Size(200, 225);
 			this.mPicture2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -72,7 +72,7 @@
 			// 
 			this.mPicture1.Image = ((System.Drawing.Image)(resources.GetObject("mPicture1.Image")));
 			this.mPicture1.Location = new System.Drawing.Point(16, 68);
-			this.mPicture1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mPicture1.Margin = new System.Windows.Forms.Padding(4);
 			this.mPicture1.Name = "mPicture1";
 			this.mPicture1.Size = new System.Drawing.Size(250, 139);
 			this.mPicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -103,9 +103,9 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Location = new System.Drawing.Point(16, 316);
-			this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
 			this.groupBox1.Size = new System.Drawing.Size(332, 198);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
@@ -114,7 +114,7 @@
 			// mPowerText1
 			// 
 			this.mPowerText1.Location = new System.Drawing.Point(91, 153);
-			this.mPowerText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mPowerText1.Margin = new System.Windows.Forms.Padding(4);
 			this.mPowerText1.Name = "mPowerText1";
 			this.mPowerText1.Size = new System.Drawing.Size(132, 22);
 			this.mPowerText1.TabIndex = 4;
@@ -124,7 +124,7 @@
 			// mDefenseText1
 			// 
 			this.mDefenseText1.Location = new System.Drawing.Point(91, 121);
-			this.mDefenseText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mDefenseText1.Margin = new System.Windows.Forms.Padding(4);
 			this.mDefenseText1.Name = "mDefenseText1";
 			this.mDefenseText1.Size = new System.Drawing.Size(132, 22);
 			this.mDefenseText1.TabIndex = 3;
@@ -134,7 +134,7 @@
 			// mAttackText1
 			// 
 			this.mAttackText1.Location = new System.Drawing.Point(91, 89);
-			this.mAttackText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mAttackText1.Margin = new System.Windows.Forms.Padding(4);
 			this.mAttackText1.Name = "mAttackText1";
 			this.mAttackText1.Size = new System.Drawing.Size(132, 22);
 			this.mAttackText1.TabIndex = 2;
@@ -144,7 +144,7 @@
 			// mLevelText1
 			// 
 			this.mLevelText1.Location = new System.Drawing.Point(91, 57);
-			this.mLevelText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mLevelText1.Margin = new System.Windows.Forms.Padding(4);
 			this.mLevelText1.Name = "mLevelText1";
 			this.mLevelText1.Size = new System.Drawing.Size(132, 22);
 			this.mLevelText1.TabIndex = 1;
@@ -164,7 +164,7 @@
 			// mHPText1
 			// 
 			this.mHPText1.Location = new System.Drawing.Point(91, 25);
-			this.mHPText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mHPText1.Margin = new System.Windows.Forms.Padding(4);
 			this.mHPText1.Name = "mHPText1";
 			this.mHPText1.Size = new System.Drawing.Size(132, 22);
 			this.mHPText1.TabIndex = 0;
@@ -223,9 +223,9 @@
 			this.groupBox2.Controls.Add(this.label10);
 			this.groupBox2.Controls.Add(this.label11);
 			this.groupBox2.Location = new System.Drawing.Point(429, 316);
-			this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
 			this.groupBox2.Size = new System.Drawing.Size(332, 198);
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
@@ -234,7 +234,7 @@
 			// mPowerText2
 			// 
 			this.mPowerText2.Location = new System.Drawing.Point(91, 153);
-			this.mPowerText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mPowerText2.Margin = new System.Windows.Forms.Padding(4);
 			this.mPowerText2.Name = "mPowerText2";
 			this.mPowerText2.Size = new System.Drawing.Size(132, 22);
 			this.mPowerText2.TabIndex = 4;
@@ -244,7 +244,7 @@
 			// mDefenseText2
 			// 
 			this.mDefenseText2.Location = new System.Drawing.Point(91, 121);
-			this.mDefenseText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mDefenseText2.Margin = new System.Windows.Forms.Padding(4);
 			this.mDefenseText2.Name = "mDefenseText2";
 			this.mDefenseText2.Size = new System.Drawing.Size(132, 22);
 			this.mDefenseText2.TabIndex = 3;
@@ -254,7 +254,7 @@
 			// mAttackText2
 			// 
 			this.mAttackText2.Location = new System.Drawing.Point(91, 89);
-			this.mAttackText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mAttackText2.Margin = new System.Windows.Forms.Padding(4);
 			this.mAttackText2.Name = "mAttackText2";
 			this.mAttackText2.Size = new System.Drawing.Size(132, 22);
 			this.mAttackText2.TabIndex = 2;
@@ -264,7 +264,7 @@
 			// mLevelText2
 			// 
 			this.mLevelText2.Location = new System.Drawing.Point(91, 57);
-			this.mLevelText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mLevelText2.Margin = new System.Windows.Forms.Padding(4);
 			this.mLevelText2.Name = "mLevelText2";
 			this.mLevelText2.Size = new System.Drawing.Size(132, 22);
 			this.mLevelText2.TabIndex = 1;
@@ -284,7 +284,7 @@
 			// mHPText2
 			// 
 			this.mHPText2.Location = new System.Drawing.Point(91, 25);
-			this.mHPText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mHPText2.Margin = new System.Windows.Forms.Padding(4);
 			this.mHPText2.Name = "mHPText2";
 			this.mHPText2.Size = new System.Drawing.Size(132, 22);
 			this.mHPText2.TabIndex = 0;
@@ -335,8 +335,8 @@
 			// 
 			this.mFightBtn.AutoSize = true;
 			this.mFightBtn.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.mFightBtn.Location = new System.Drawing.Point(320, 543);
-			this.mFightBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.mFightBtn.Location = new System.Drawing.Point(327, 546);
+			this.mFightBtn.Margin = new System.Windows.Forms.Padding(4);
 			this.mFightBtn.Name = "mFightBtn";
 			this.mFightBtn.Size = new System.Drawing.Size(139, 50);
 			this.mFightBtn.TabIndex = 14;
@@ -355,7 +355,7 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.mPicture1);
 			this.Controls.Add(this.mPicture2);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form1";
 			this.Text = "Plz Don\'t Sue Me Nintendo";
 			((System.ComponentModel.ISupportInitialize)(this.mPicture2)).EndInit();

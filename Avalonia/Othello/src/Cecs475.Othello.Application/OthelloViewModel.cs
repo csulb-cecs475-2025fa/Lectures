@@ -12,6 +12,8 @@ namespace Cecs475.Othello.AvaloniaApp {
 	/// </summary>
 	public class OthelloViewModel : INotifyPropertyChanged {
 		private OthelloBoard mBoard;
+		// An ObservableCollection has events to notify listeners whenever a value is added, removed,
+		// or an index of the collection is set.
 		private ObservableCollection<OthelloSquare> mSquares;
 
 		public event PropertyChangedEventHandler? PropertyChanged;
@@ -112,7 +114,7 @@ namespace Cecs475.Othello.AvaloniaApp {
 			set {
 				if (value != mIsHighlighted) {
 					mIsHighlighted = value;
-					OnPropertyChanged(nameof(IsHighlighted));
+					OnPropertyChanged();
 				}
 			}
 		}

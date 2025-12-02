@@ -14,10 +14,9 @@ namespace EfCore {
 
 		public DbSet<Author> Author { get; set; }
 		public DbSet<Book> Book { get; set; }
+
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 			optionsBuilder.UseSqlServer(mConnectionString);
-			//optionsBuilder.LogTo(Console.WriteLine);
-
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {

@@ -31,7 +31,6 @@ internal class Program {
 		// Always close a reader when we are done.
 		reader.Close();
 
-
 		foreach (Book b in books) { 
 			SqlCommand authorCmd = conn.CreateCommand();
 			authorCmd.CommandText = "SELECT * FROM Author WHERE Id = @AuthorId";

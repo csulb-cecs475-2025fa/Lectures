@@ -20,6 +20,11 @@ namespace Pokemon {
 		}
 
 		private void mImage2_MouseDown(object sender, PointerPressedEventArgs e) {
+			for (int i = 0; i < 900000000; i++) {
+				int x = i * i;
+				Console.WriteLine(x);
+			}
+
 			var point = e.GetCurrentPoint((Control)sender);
 			if (point.Properties.IsLeftButtonPressed && e.ClickCount == 2) {
 				mImage2.Source = new Bitmap(AssetLoader.Open(new Uri("avares://Pokemon/Resources/charizard.png")));

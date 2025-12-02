@@ -19,7 +19,7 @@ internal class Program {
 			}
 		}
 		Console.WriteLine();
-		var f451 = context.Book.Where(b => b.Title == "Fahrenheit 451").SingleOrDefault();
+		var f451 = context.Book.Where(b => b.Title == "Fahrenheit 451").FirstOrDefault();
 		// Runs the query
 		//
 		// SELECT *

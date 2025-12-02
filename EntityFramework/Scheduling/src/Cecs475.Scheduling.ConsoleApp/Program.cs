@@ -164,7 +164,7 @@ namespace Test {
 
 
 					case 2:
-						// Print all courses in the catalog
+						// Print all CECS courses in the catalog
 
 						// Load all courses, and include their prerequisite references.
 						var allCourses = con.Courses.Include(c => c.Prerequisites)
@@ -191,7 +191,7 @@ namespace Test {
 										.Include(s => s.CourseSections)
 										.ThenInclude(s => s.Instructor)
 										.Where(s => s.Name == "Fall 2017").FirstOrDefault();
-						if (fallSem == null) {
+						if (fallSem is null) {
 							break;
 						}
 

@@ -6,11 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Cecs475.Scheduling.Model {
+	public class X {
+
+	}
+
 	public class CatalogContext : DbContext {
 		public DbSet<SemesterTerm> SemesterTerms { get; set; }
 		public DbSet<Instructor> Instructors { get; set; }
 		public DbSet<CatalogCourse> Courses { get; set; }
 		public DbSet<Student> Students { get; set; }
+
+
 
 		private string mConnectionString;
 		public CatalogContext(string connectionString) : base() {

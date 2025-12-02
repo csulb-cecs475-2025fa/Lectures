@@ -53,20 +53,21 @@ namespace Othello.App
 				}
 				else if (input.StartsWith("undo ")) {
 					// Parse the number of moves to undo and repeatedly undo one move.
-					int undoCount = Convert.ToInt32(input[5..]);
-					while (undoCount > 0 && board.MoveHistory.Count > 0) {
+					if (!int.TryParse(input.Split(' ')[1], out int undoCount)) {
+						undoCount = 1;
+					}
+					for (int i = 0; i < undoCount && board.MoveHistory.Count > 0; i++) {
 						board.UndoLastMove();
-						undoCount--;
 					}
 				}
-				else if (input == "showHistory") {
+				else if (input == "history") {
 					// Show the move history in reverse order.
 					Console.WriteLine("History:");
 					foreach (var move in board.MoveHistory.Reverse()) {
 						Console.WriteLine($"{move}");
 					}
 				}
-				else if (input == "showAdvantage") {
+				else if (input == "advantage") {
 					Console.WriteLine($"Advantage: {board.CurrentAdvantage.Advantage} " +
 						$"in favor of {GetPlayerString(board.CurrentAdvantage.Player)}");
 				}

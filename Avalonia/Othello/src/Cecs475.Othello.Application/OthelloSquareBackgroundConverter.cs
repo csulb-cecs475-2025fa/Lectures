@@ -18,11 +18,9 @@ namespace Cecs475.Othello.AvaloniaApp {
 			// is being hovered.
 			if (values.Count < 2 || values[0] is not BoardPosition pos) {
 				return null;
-				throw new ArgumentException("Converter must be bound to a BoardPosition and a boolean");
 			}
 			if (values[1] is not bool isHighlighted) {
 				return null;
-				throw new ArgumentException("Converter must be bound to a BoardPosition and a boolean");
 			}
 
 			// Hovered squares have a specific color.

@@ -10,14 +10,11 @@ namespace Cecs475.Scheduling.Model {
 	/// Represents an instructor who can teach course sections.
 	/// </summary>
 	public class Instructor {
+
 		public int Id { get; set; }
-		[MaxLength(32)]
-		[Required]
 		public string FirstName { get; set; }
-		[MaxLength(32)]
-		[Required]
 		public string LastName { get; set; }
 
-		public virtual ICollection<ClassSection> CourseSections { get; set; } = new List<ClassSection>();
+		public ICollection<ClassSection> CourseSections { get; set; } = [];
 	}
 }
