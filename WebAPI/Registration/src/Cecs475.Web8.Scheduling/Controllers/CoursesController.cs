@@ -26,31 +26,30 @@ namespace Cecs475.Scheduling.Web.Controllers {
 	[ApiController]
 	[Route("api/courses")]
 	public class CoursesController : ControllerBase {
-		private Model.CatalogContext mContext = new Model.CatalogContext(ApplicationSettings.ConnectionString);
+		private Data.CatalogContext mContext = new Data.CatalogContext(ApplicationSettings.ConnectionString);
 
 		[HttpGet]
-		public async Task<IEnumerable<CatalogCourseDto>> GetCourses() {
-			var courses = await mContext.Courses.Include(c => c.Prerequisites).ToListAsync();
-			return courses.Select(CatalogCourseDto.From);
+		public IEnumerable<CatalogCourseDto> GetCourses() {
+			return mContext.Courses.Include(c => c.Prerequisites)
+				.Select(CatalogCourseDto.From);
 		}
 
-		[HttpGet]
-		[Route("{id:int}")]
-		public async Task<IActionResult> GetCourse(int id) {
-			var course = await mContext.Courses.Include(c => c.Prerequisites).SingleOrDefaultAsync(c => c.Id == id);
-			if (course is null) {
+		[HttpGet("{id:int}")]
+		public IActionResult GetCourse(int id) {
+			var course = mContext.Courses.Include(c => c.Prerequisites)
+				.Where(c => c.Id == id).SingleOrDefault();
+			if (course == null) {
 				return NotFound();
 			}
 			return Ok(CatalogCourseDto.From(course));
 		}
 
-		[HttpGet]
-		[Route("{name:alpha}")]
-		public async Task<IActionResult> GetCourse(string name) {
-			var course = await mContext.Courses.Include(c => c.Prerequisites)
-				.SingleOrDefaultAsync(c => c.DepartmentName + " " + c.CourseNumber == name);
-
-			if (course is null) {
+		[HttpGet("{name:alpha}")]
+		public IActionResult GetCourse(string name) {
+			var course = mContext.Courses.Include(c => c.Prerequisites)
+				.Where(c => c.DepartmentName + " " + c.CourseNumber == name)
+				.SingleOrDefault();
+			if (course == null) {
 				return NotFound();
 			}
 			return Ok(CatalogCourseDto.From(course));

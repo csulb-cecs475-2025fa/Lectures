@@ -34,7 +34,7 @@ namespace Cecs475.Web.BooksDemo.Controllers {
 			return mRepository.Values;
 		}
 
-		// Retrieve a specific id. books/{id}
+		// Retrieve a specific id. Books/{id}
 		[HttpGet("{id}")]
 		public Book? GetById(int id) {
 			if (mRepository.ContainsKey(id)) {

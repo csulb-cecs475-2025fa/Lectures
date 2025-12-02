@@ -1,12 +1,6 @@
-﻿using Cecs475.Web8.Scheduling;
+﻿using Cecs475.Scheduling.Model;
+using Cecs475.Web8.Scheduling;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading;
 
 namespace Cecs475.Scheduling.Web.Controllers {
 	public class ClassSectionDto {
@@ -15,7 +9,7 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		public CatalogCourseDto CatalogCourse { get; set; }
 		public int SectionNumber { get; set; }
 
-		public static ClassSectionDto From(Model.ClassSection section) {
+		public static ClassSectionDto From(ClassSection section) {
 			return new ClassSectionDto {
 				Id = section.Id,
 				SemesterTermId = section.Semester.Id,
@@ -33,12 +27,11 @@ namespace Cecs475.Scheduling.Web.Controllers {
 	[ApiController]
 	[Route("api/register")]
 	public class RegisterController : ControllerBase {
-		private Model.CatalogContext mContext = new Model.CatalogContext(ApplicationSettings.ConnectionString);
+		private Data.CatalogContext mContext = new Data.CatalogContext(ApplicationSettings.ConnectionString);
 
 		[HttpPost]
-		[Route("")]
-		public async Task<IActionResult> RegisterForCourse([FromBody]RegistrationDto studentCourse) {
-			var student = await mContext.Students.SingleOrDefaultAsync(s => s.Id == studentCourse.StudentID);
+		public IActionResult RegisterForCourse([FromBody]RegistrationDto studentCourse) {
+			Student? student = mContext.Students.Where(s => s.Id == studentCourse.StudentID).FirstOrDefault();
 			// Simulate a slow connection / complicated operation by sleeping.
 			Thread.Sleep(3000);
 
@@ -46,14 +39,15 @@ namespace Cecs475.Scheduling.Web.Controllers {
 				return NotFound();
 			}
 
-			var term = await mContext.SemesterTerms.SingleOrDefaultAsync(
-				t => t.Id == studentCourse.CourseSection.SemesterTermId);
+			SemesterTerm? term = mContext.SemesterTerms.Where(
+				t => t.Id == studentCourse.CourseSection.SemesterTermId)
+				.SingleOrDefault();
 
 			if (term is null) {
 				return NotFound();
 			}
 
-			var section = term.CourseSections.SingleOrDefault(
+			ClassSection? section = term.CourseSections.SingleOrDefault(
 				c => c.CatalogCourse.DepartmentName == studentCourse.CourseSection.CatalogCourse.DepartmentName
 					  && c.CatalogCourse.CourseNumber == studentCourse.CourseSection.CatalogCourse.CourseNumber
 					  && c.SectionNumber == studentCourse.CourseSection.SectionNumber);
@@ -62,9 +56,9 @@ namespace Cecs475.Scheduling.Web.Controllers {
 			}
 
 			var regResult = student.CanRegisterForCourseSection(section);
-			if (regResult == Model.RegistrationResults.Success) {
+			if (regResult == RegistrationResults.Success) {
 				section.EnrolledStudents.Add(student);
-				await mContext.SaveChangesAsync();
+				mContext.SaveChanges();
 			}
 
 			return Ok(regResult);
