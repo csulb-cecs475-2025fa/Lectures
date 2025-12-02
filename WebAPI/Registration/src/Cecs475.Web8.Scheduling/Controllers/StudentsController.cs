@@ -92,6 +92,9 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		}
 
 		[HttpPost]
+		// A POST route implies creating a new object. The object is too complicated to pass as a string
+		// in the URL, so it must come from the body of the request. ASP.NET will handle deserializing
+		// the JSON of the request body into a StudentDto object.
 		public IActionResult Post([FromBody] StudentDto value) {
 			Model.Student newStudent = new Model.Student() {
 				FirstName = value.FirstName,
@@ -107,6 +110,7 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		}
 
 		[HttpPut("{id}")]
+		// A PUT route implies updating an existing object, which is also specified in the request body.
 		public IActionResult Put(int id, [FromBody] StudentDto value) {
 			var student = mContext.Students.Where(s => s.Id == id).SingleOrDefault();
 			if (student is null) {
@@ -124,6 +128,7 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		}
 
 		[HttpDelete("{id}")]
+		// Probably obvious what this one does.
 		public IActionResult Delete(int id) {
 			var student = mContext.Students.Where(s => s.Id == id).SingleOrDefault();
 			if (student is null) {

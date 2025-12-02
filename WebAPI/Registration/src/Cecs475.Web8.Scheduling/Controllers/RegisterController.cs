@@ -1,6 +1,7 @@
 ﻿using Cecs475.Scheduling.Model;
 using Cecs475.Web8.Scheduling;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cecs475.Scheduling.Web.Controllers {
 	public class ClassSectionDto {
@@ -30,23 +31,24 @@ namespace Cecs475.Scheduling.Web.Controllers {
 		private Data.CatalogContext mContext = new Data.CatalogContext(ApplicationSettings.ConnectionString);
 
 		[HttpPost]
-		public IActionResult RegisterForCourse([FromBody]RegistrationDto studentCourse) {
-			Student? student = mContext.Students.Where(s => s.Id == studentCourse.StudentID).FirstOrDefault();
-			// Simulate a slow connection / complicated operation by sleeping.
-			Thread.Sleep(3000);
+		public async Task<IActionResult> RegisterForCourse([FromBody]RegistrationDto studentCourse) {
+			// Load the student and the semester concurrently.
+			var studentTask = mContext.Students.FirstOrDefaultAsync(s => s.Id == studentCourse.StudentID);
+			var semesterTask = mContext.SemesterTerms.Where(
+				t => t.Id == studentCourse.CourseSection.SemesterTermId)
+				.SingleOrDefaultAsync();
 
+			Student? student = await studentTask;
 			if (student is null) {
 				return NotFound();
 			}
 
-			SemesterTerm? term = mContext.SemesterTerms.Where(
-				t => t.Id == studentCourse.CourseSection.SemesterTermId)
-				.SingleOrDefault();
-
+			SemesterTerm? term = await semesterTask;
 			if (term is null) {
 				return NotFound();
 			}
 
+			// Find the class section.
 			ClassSection? section = term.CourseSections.SingleOrDefault(
 				c => c.CatalogCourse.DepartmentName == studentCourse.CourseSection.CatalogCourse.DepartmentName
 					  && c.CatalogCourse.CourseNumber == studentCourse.CourseSection.CatalogCourse.CourseNumber
@@ -58,7 +60,7 @@ namespace Cecs475.Scheduling.Web.Controllers {
 			var regResult = student.CanRegisterForCourseSection(section);
 			if (regResult == RegistrationResults.Success) {
 				section.EnrolledStudents.Add(student);
-				mContext.SaveChanges();
+				await mContext.SaveChangesAsync();
 			}
 
 			return Ok(regResult);

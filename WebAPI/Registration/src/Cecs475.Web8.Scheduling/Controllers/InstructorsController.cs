@@ -37,8 +37,7 @@ namespace Cecs475.Scheduling.Web.Controllers {
 			return Ok(instructors.Select(InstructorDto.From));
 		}
 
-		[HttpGet]
-		[Route("{id:int}")]
+		[HttpGet("{id:int}")]
 		public async Task<IActionResult> GetInstructor(int id) {
 			// SingleOrDefaultAsync is an async version of SingleOrDefault.
 			var instructor = await mContext.Instructors.SingleOrDefaultAsync(i => i.Id == id);
