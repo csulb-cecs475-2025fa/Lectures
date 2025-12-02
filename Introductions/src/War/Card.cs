@@ -4,17 +4,10 @@
 // Fully Qualified Name. Namespaces are similar to Python modules, except Python modules define a physical on-disk
 // grouping in addition to a logical grouping.
 namespace Cecs475.War {
-	// A class defines a new reference type. In .NET, a reference type uses reference semantics for assignment and
-	// copying. (More on this later.) .NET (and thus C#) give us the option of declaring non-reference types, which
-	// we will also see later.
-
 	// A comment like the one below is a documentation comment.
 	/// <summary>
 	/// Represents a single card in a 52-card deck of playing cards.
 	/// </summary>
-	// This class could be used by other programmers; it represents a generic card, not something internally specific
-	// to this one application. "public" allows code from anywhere else in .NET to use this class as long as they have
-	// access to its compiled output.
 	public class Card : IComparable<Card> {
 		// : IComparable<Card> states that the Card class implements an *interface* called IComparable<Card>.
 		// We will talk about interfaces later; for now, this communicates to other programmers that Card objects
@@ -47,32 +40,17 @@ namespace Cecs475.War {
 			Ace // == 14
 		}
 
-		// Normally we think of class design in terms of FIELDS and METHODS. But .NET goes further,
-		// introducing a third term: PROPERTIES. A property is like a field that is publicly readable
-		// and optionally writeable. Properties allow us to expose certain attributes of an object
-		// through its public API, allowing others to query and sometimes change those attributes.
+		/// <summary>
+		/// The card's suit.
+		/// </summary>
+		public CardSuit Suit { get; }
 
-		// A property is declared with an access modifier, a type, a name, and then a body.
-		public CardSuit Suit {
-			// The body of the property declares whether it is read-only or can also be written to.
-			get;
-			set;
-		}
-		// This is called an "auto property". We specify that the public can get and set the value of
-		// the Suit property. Later we will expand these get/set statements; for now, they declare
-		// a CardSuit field that can be read and written by the public.
-		// This property is public, because it represents something that must be known by other code
-		// about Card objects.
+		/// <summary>
+		/// The card's kind.
+		/// </summary>
+		public CardKind Kind { get; }
 
-		// More compactly, and prettier:
-		public CardKind Kind { get; set; }
-
-
-		// Constructor. This method defines what must be known to create an object of the Card class.
-		// Any parameters to this method must be provided when constructing a Card.
 		public Card(CardKind kind, CardSuit suit) {
-			// Since Suit and Kind are properties with setters, we can assign to them as if they
-			// are fields.
 			this.Suit = suit;
 			this.Kind = kind;
 		}
