@@ -27,6 +27,14 @@ namespace Cecs475.War {
 			private set;
 		}
 
+		// A computed property.
+		public bool IsEmpty { get { return Count == 0; } }
+
+		// An alternate syntax for read-only computed properties, where the computation is a single
+		// return statement:
+		public bool CanDeal => Count > 0;
+
+
 		/// <summary>
 		/// Construct a new unshuffled deck.
 		/// </summary>
@@ -36,9 +44,9 @@ namespace Cecs475.War {
 
 			int i = 0;
 			// For simplicity, we will abuse the fact that we know that CardSuit and CardKind are really just integers.
-			for (int suit = 0; suit < 4; suit++) {
-				for (int kind = 2; kind <= 14; kind++) {
-					mCards[i] = new Card((Card.CardKind)kind, (Card.CardSuit)suit); // the cast satisfies the type system.
+			foreach (Card.CardSuit suit in Enum.GetValues(typeof(Card.CardSuit))) {
+				foreach (Card.CardKind kind in Enum.GetValues(typeof(Card.CardKind))) {
+					mCards[i] = new Card(kind, suit);
 					i++;
 				}
 			}
@@ -80,12 +88,13 @@ namespace Cecs475.War {
 		}
 
 		// Return a string of all the cards in the deck, from top to bottom.
-		public override string ToString() {
+		public override string ToString() =>
+			string.Join(", ", mCards.Take(Count).Reverse());
+			// The => syntax is again shorthand for returning a single statement.
 			// String.Join: creates a string by inserting the given delimiter between every element of a given collection.
 			// Reverse(): reverses a sequence.
 			// Take(n): returns only the first n elements of a sequence.
-			return string.Join(", ", mCards.Take(Count).Reverse());
-		}
+
 
 		// This is a poorly designed shuffle method. The algorithm is correct, but it hard-codes a *dependency*
 		// -- the Random object used for random numbers. 

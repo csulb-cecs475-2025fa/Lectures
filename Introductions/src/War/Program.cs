@@ -77,9 +77,10 @@ namespace Cecs475.War {
 				}
 
 				// Ask to go to next deal.
-				string? again;
 				Console.WriteLine("Continue? y/n:");
-				again = Console.ReadLine();
+				string again = Console.ReadLine() ?? "n"; // if ReadLine returns null, use "n".
+														  // Therefore, "again" cannot be null,
+														  // so we can use "string" instead of "string?".
 				if (again != "y") {
 					break;
 				}

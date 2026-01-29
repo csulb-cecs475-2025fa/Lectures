@@ -8,7 +8,7 @@ namespace Cecs475.War {
 	/// <summary>
 	/// Represents a single card in a 52-card deck of playing cards.
 	/// </summary>
-	public class Card : IComparable<Card> {
+	public struct Card : IComparable<Card> {
 		// : IComparable<Card> states that the Card class implements an *interface* called IComparable<Card>.
 		// We will talk about interfaces later; for now, this communicates to other programmers that Card objects
 		// can be compared to other Card objects to see which is "larger".
@@ -71,10 +71,7 @@ namespace Cecs475.War {
 		}
 
 		// Compare this card to another, to decide which wins the War game. 
-		public int CompareTo(Card? other) {
-			// It doesn't make sense to compare a Card to null, so we throw an exception if asked to.
-			ArgumentNullException.ThrowIfNull(other);
-
+		public int CompareTo(Card other) {
 			// Compare the cards based on the integer value of their Kind.
 			return this.Kind.CompareTo(other.Kind);
 		}
