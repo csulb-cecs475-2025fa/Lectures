@@ -78,6 +78,7 @@
 			this.mPicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.mPicture1.TabIndex = 1;
 			this.mPicture1.TabStop = false;
+			this.mPicture1.Click += new System.EventHandler(this.mPicture1_Click);
 			// 
 			// label1
 			// 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Basics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,7 +61,7 @@ namespace WinForms_Basics {
 		}
 
 		private void mAttackText1_TextChanged(object sender, EventArgs e) {
-			//mTogekiss.Attack = Convert.ToInt32(mAttackText1.Text);
+			mTogekiss.Attack = Convert.ToInt32(mAttackText1.Text);
 		}
 
 		private void mDefenseText1_TextChanged(object sender, EventArgs e) {
@@ -119,6 +120,9 @@ namespace WinForms_Basics {
 			}
 		}
 
-		
+		private void mPicture1_Click(object sender, EventArgs e) {
+			EditorDemo editor = new EditorDemo(mTogekiss);
+			editor.ShowDialog();
+		}
 	}
 }
